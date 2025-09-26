@@ -4,14 +4,12 @@ import fs from "fs";
 dotenv.config()
 
 export const db = await mysql.createConnection({
-    host: process.env.HOSt || "localhost",
-    port: process.env.DB_PORT,
-    user: process.env.USER || "root",
-    password: process.env.MY_SQL_PASSWORD,
-    database: process.env.DB_NAME||"chatapp",
-    ssl: {
-    ca: fs.readFileSync(process.env.DB_CA)
-  }
+    host:  "localhost",
+    // port: process.env.DB_PORT,
+    user:  "root",
+    password: process.env.sql_pass,
+    database: "chatapp",
+   
 });
 
 console.log("mysql connect succesfully"); 
