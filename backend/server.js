@@ -2,11 +2,13 @@ import { createServer } from "node:http";
 import express from "express";
 import { Server } from "socket.io";
 import { db } from "./db.js";
+import dotenv from "dotenv"
 
 
 
 const app = express();
 const server = createServer(app);
+const port=process.env.PORT
 
 const io = new Server(server, {
     cors: { origin: "*" },
@@ -62,6 +64,6 @@ app.get("/", (req, res) => {
     res.send("<h1>Hello world</h1>");
 });
 
-server.listen(4600, () => {
-    console.log("Server running at http://localhost:4600");
+server.listen(port, () => {
+    console.log("Server running at ",port);
 });
